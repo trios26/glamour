@@ -195,7 +195,10 @@ class Attribution:
         ax.set_aspect(8.5)
         plt.xticks(fontsize=15)
         plt.yticks([],fontsize=15)
-        ax.set_yticklabels([''])
+        #ax.set_yticklabels([''])
+        yticks = ax.get_yticks()
+        if len(yticks) == 1:
+            ax.set_yticklabels([''])
         plt.xticks(fontsize=20)
         cbar = ax.figure.colorbar(im, ax=ax)
         cbar.ax.tick_params(labelsize=18)

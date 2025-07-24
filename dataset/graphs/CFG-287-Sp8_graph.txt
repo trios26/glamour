@@ -1,0 +1,9 @@
+SMILES
+Neu5Gc O=C(CO)N[C@H]1[C@H]([C@H](O)[C@H](O)CO)OC(O)(C(=O)O)C[C@@H]1O
+alpha_bond C[C@H](OC)CC
+
+MONOMERS
+1 Neu5Gc
+
+BONDS
+1 1 alpha_bond

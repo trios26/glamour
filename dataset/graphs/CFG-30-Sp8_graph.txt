@@ -1,0 +1,12 @@
+SMILES
+Gal3S O=S(=O)(O)O[C@H]1[C@@H](O)[C@@H](CO)OC(O)[C@@H]1O
+GalNAc CC(=O)N[C@H]1C(O)O[C@H](CO)[C@H](O)[C@@H]1O
+alpha_bond C[C@H](OC)CC
+beta_bond C[C@@H](OC)CC
+
+MONOMERS
+1 Gal3S
+2 GalNAc
+
+BONDS
+1 2 alpha_bond

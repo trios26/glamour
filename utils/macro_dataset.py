@@ -176,7 +176,7 @@ class MacroDataset():
         
     def _quantiletransform(self):
         ''' Utility function for normalizing regression labels using quantile transform '''
-        df_list = self._df['avg'].tolist()
+        df_list = self._df[self._labelname].tolist()
         data_list = [val for val in df_list if (not val is None and not pd.isna(val) and not pd.isnull(val) and not val == '')]
         qt = QuantileTransformer(n_quantiles = len(data_list), random_state = self._seed)
         qt.fit(np.array(data_list).reshape(-1, 1))
@@ -184,7 +184,7 @@ class MacroDataset():
         labels = [] 
         masks = [] 
         for graph in self.IDs:
-            label_orig = self._df[self._df['ID']==graph][['avg']].values[0].tolist()
+            label_orig = self._df[self._df['ID']==graph][[self._labelname]].values[0].tolist()
             label_scale = list(qt.transform(np.array(label_orig).reshape(-1, 1)))[0]
             mask_tmp = [1]
             if pd.isnull(label_orig[0]): 
@@ -200,7 +200,7 @@ class MacroDataset():
         
     def _standardscaler(self):
         ''' Utility function for normalizing regression labels using standard scaler '''
-        df_list = self._df['avg'].tolist()
+        df_list = self._df[self._labelname].tolist()
         data_list = [val for val in df_list if (not val is None and not pd.isna(val) and not pd.isnull(val) and not val == '')]
         scaler = StandardScaler()
         scaler.fit(np.array(data_list).reshape(-1, 1))
@@ -208,7 +208,7 @@ class MacroDataset():
         labels = [] 
         masks = [] 
         for graph in self.IDs:
-            label_orig = self._df[self._df['ID']==graph][['avg']].values[0].tolist()
+            label_orig = self._df[self._df['ID']==graph][[self._labelname]].values[0].tolist()
             label_scale = list(scaler.transform(np.array(label_orig).reshape(-1, 1)))[0]
             mask_tmp = [1]
             if pd.isnull(label_orig[0]): 
@@ -241,3 +241,8 @@ class MacroDataset():
         '''
         return len(self.graphs)
     
+    
+    
+
+
+

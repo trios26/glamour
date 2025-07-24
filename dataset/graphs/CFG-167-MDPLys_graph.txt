@@ -1,0 +1,11 @@
+SMILES
+GlcNAc CC(=O)N[C@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O
+MurNAc CC(=O)N[C@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O[C@H](C)C(=O)O
+beta_bond C[C@@H](OC)CC
+
+MONOMERS
+1 GlcNAc
+2 MurNAc
+
+BONDS
+1 2 alpha_bond

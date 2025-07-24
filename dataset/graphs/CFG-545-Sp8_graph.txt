@@ -1,0 +1,12 @@
+SMILES
+GalNAc3S CC(=O)N[C@H]1C(O)O[C@H](CO)[C@H](O)[C@@H]1OS(=O)(=O)O
+GlcNAc3S CC(=O)N[C@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1OS(=O)(=O)O
+nostereo_bond CC(OC)CC
+beta_bond C[C@@H](OC)CC
+
+MONOMERS
+1 GalNAc3S
+2 GlcNAc3S
+
+BONDS
+1 2 alpha_bond

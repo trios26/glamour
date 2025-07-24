@@ -1,0 +1,9 @@
+SMILES
+Gal OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@H]1O
+beta_bond C[C@@H](OC)CC
+
+MONOMERS
+1 Gal
+
+BONDS
+1 1 alpha_bond

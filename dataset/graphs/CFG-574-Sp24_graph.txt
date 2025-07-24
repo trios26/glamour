@@ -1,0 +1,40 @@
+SMILES
+Neu5Gc O=C(CO)N[C@H]1[C@H]([C@H](O)[C@H](O)CO)OC(O)(C(=O)O)C[C@@H]1O
+Gal OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@H]1O
+GlcNAc CC(=O)N[C@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O
+Man OC[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O
+alpha_bond C[C@H](OC)CC
+beta_bond C[C@@H](OC)CC
+
+MONOMERS
+1 Neu5Gc
+2 Gal
+3 GlcNAc
+4 Gal
+5 GlcNAc
+6 Man
+7 Neu5Gc
+8 Gal
+9 GlcNAc
+10 Gal
+11 GlcNAc
+12 Man
+13 Man
+14 GlcNAc
+15 GlcNAc
+
+BONDS
+1 2 alpha_bond
+2 3 beta_bond
+3 4 alpha_bond
+4 5 beta_bond
+5 6 alpha_bond
+6 7 beta_bond
+7 8 alpha_bond
+8 9 beta_bond
+9 10 alpha_bond
+10 11 beta_bond
+11 12 alpha_bond
+12 13 beta_bond
+13 14 alpha_bond
+14 15 beta_bond

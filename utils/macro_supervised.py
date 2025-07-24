@@ -435,15 +435,11 @@ class MacroSupervised():
         plt.show()
         plt.savefig(fig_path + 'ROC_AUC.pdf')
         
+
     def parity_plot(self, plottype, fig_path):
-        ''' Makes parity plot for regression task
-        
-        Args:
-        plottype : str, dataset to plot, 'val' for validation or 'test' for test
-        fig_path : str, path to save figure
-        '''
-        plt.plot([0.01, 10000], [0.01, 10000], 'k--', lw=1)
-        
+        ''' Makes parity plot for regression task with dynamic linear axes '''
+
+        # Get values and R²
         if plottype == 'val':
             y_true = self._val_plotvals[0]
             y_pred = self._val_plotvals[1]
@@ -452,33 +448,58 @@ class MacroSupervised():
             y_true = self._test_plotvals[0]
             y_pred = self._test_plotvals[1]
             r2_num = self._test_score['r2']
-        
-        removed = []
-        for i in range(len(y_true)):
-            if float(y_pred[i]) <= 0:
-                removed.append(i)
-        for val in reversed(removed):
-            y_true.pop(val)
-            y_pred.pop(val)
-        
+        else:
+            raise ValueError("plottype must be 'val', 'test', or 'train'")
+
+        # Convert to numpy and filter invalids
+        y_true = np.array(y_true, dtype=np.float32)
+        y_pred = np.array(y_pred, dtype=np.float32)
+        mask = np.isfinite(y_true) & np.isfinite(y_pred) & (y_pred >= 0) & (y_true >= 0)
+        y_true = y_true[mask]
+        y_pred = y_pred[mask]
+
+        # Axis bounds with padding
+        min_val = min(y_true.min(), y_pred.min())
+        max_val = max(y_true.max(), y_pred.max())
+        range_padding = (max_val - min_val) * 0.05 if max_val != min_val else 0.05
+        x_min, x_max = min_val - range_padding, max_val + range_padding
+
+        # Plot setup
+        plt.figure(figsize=(6, 6))
+        plt.plot([x_min, x_max], [x_min, x_max], 'k--', lw=1)
+
+        # Plot hexbin or fallback scatter if too few points
         colors = ["#2C7FFF", "#B2B2B2", "#B12122"]
         cmap = LinearSegmentedColormap.from_list("mycmap", colors)
-        plt.hexbin(
-            y_true, y_pred, mincnt=1, cmap=cmap, vmin=2, vmax=5, xscale='log', yscale='log', bins='log')
-    
-        plt.xlabel('Ground Truth Activity', fontsize=18)
-        plt.ylabel('Predicted Activity', fontsize=18)
-        plt.xlim([0.01, 10000])
-        plt.ylim([0.01, 10000])
+
+        if len(y_true) >= 10:
+            plt.hexbin(
+                y_true, y_pred, mincnt=1, cmap=cmap,
+                gridsize=40  # can adjust this if needed
+            )
+            cbar = plt.colorbar()
+            cbar.ax.tick_params(labelsize=18)
+            cbar.set_label(label='Density', size=18)
+        else:
+            plt.scatter(y_true, y_pred, c="#2C7FFF", alpha=0.6)
+
+        # Labels and formatting
+        plt.xlabel('Ground Truth', fontsize=18)
+        plt.ylabel('Predicted', fontsize=18)
+        plt.xlim([x_min, x_max])
+        plt.ylim([x_min, x_max])
         plt.tick_params(axis='both', which='major', labelsize=16)
-        cbar = plt.colorbar()
-        cbar.ax.tick_params(labelsize=18)
-        cbar.set_label(label='Density', size=18)
+
+        # R² text in lower right
+        x_text = x_max - 0.05 * (x_max - x_min)
+        y_text = x_min + 0.05 * (x_max - x_min)
+        plt.text(x_text, y_text, 'R$^2$ = %0.3f' % r2_num,
+                 verticalalignment='bottom', horizontalalignment='right',
+                 fontsize=18)
+
         plt.tight_layout()
-        plt.text(6, 0.015, 'R$^2$ = %0.3f' % (r2_num),
-            verticalalignment='bottom', horizontalalignment='right',
-            fontsize=18)
+        plt.savefig(fig_path + f'parityplot_{plottype}.pdf')
         plt.show()
-        plt.savefig(fig_path + 'parityplot.pdf')
         plt.close()
+
         

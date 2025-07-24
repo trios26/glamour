@@ -1,0 +1,82 @@
+SMILES
+Gal OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@H]1O
+GlcNAc CC(=O)N[C@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O
+Man OC[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O
+Fuc C[C@@H]1OC(O)[C@@H](O)[C@H](O)[C@@H]1O
+alpha_bond C[C@H](OC)CC
+beta_bond C[C@@H](OC)CC
+
+MONOMERS
+1 Gal
+2 GlcNAc
+3 Gal
+4 GlcNAc
+5 Gal
+6 GlcNAc
+7 Gal
+8 GlcNAc
+9 Gal
+10 GlcNAc
+11 Gal
+12 GlcNAc
+13 Gal
+14 GlcNAc
+15 Gal
+16 GlcNAc
+17 Gal
+18 GlcNAc
+19 Gal
+20 GlcNAc
+21 Man
+22 Gal
+23 GlcNAc
+24 Gal
+25 GlcNAc
+26 Gal
+27 GlcNAc
+28 Gal
+29 GlcNAc
+30 Gal
+31 GlcNAc
+32 Man
+33 Man
+34 GlcNAc
+35 Fuc
+36 GlcNAc
+
+BONDS
+1 2 alpha_bond
+2 3 beta_bond
+3 4 alpha_bond
+4 5 beta_bond
+5 6 alpha_bond
+6 7 beta_bond
+7 8 alpha_bond
+8 9 beta_bond
+9 10 alpha_bond
+10 11 beta_bond
+11 12 alpha_bond
+12 13 beta_bond
+13 14 alpha_bond
+14 15 beta_bond
+15 16 alpha_bond
+16 17 beta_bond
+17 18 alpha_bond
+18 19 beta_bond
+19 20 alpha_bond
+20 21 beta_bond
+21 22 alpha_bond
+22 23 beta_bond
+23 24 alpha_bond
+24 25 beta_bond
+25 26 alpha_bond
+26 27 beta_bond
+27 28 alpha_bond
+28 29 beta_bond
+29 30 alpha_bond
+30 31 beta_bond
+31 32 alpha_bond
+32 33 beta_bond
+33 34 alpha_bond
+34 35 beta_bond
+35 36 alpha_bond

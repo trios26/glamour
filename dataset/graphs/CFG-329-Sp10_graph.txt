@@ -1,0 +1,11 @@
+SMILES
+Man OC[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O
+alpha_bond C[C@H](OC)CC
+beta_bond C[C@@H](OC)CC
+
+MONOMERS
+1 Man
+2 Man
+
+BONDS
+1 2 alpha_bond

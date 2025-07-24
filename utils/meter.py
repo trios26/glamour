@@ -346,6 +346,7 @@ class Meter_v2():
         fpr, tpr, _ = roc_curve(y_true.long().numpy().ravel(), y_pred_numpy.numpy().ravel())
         return [fpr, tpr]
     
+
     def inverse(self, normalizer):
         pred_list = []
         true_list = []
@@ -358,6 +359,7 @@ class Meter_v2():
         pred_tensor = torch.cat(pred_list, dim=0)
             
         return [list(true_tensor), list(pred_tensor)]
+
     
     def compute_metric(self, metric_name, reduction='none'):
         '''Compute metric based on metric name.

@@ -1,0 +1,10 @@
+SMILES
+Neu5Ac CC(=O)N[C@H]1[C@H]([C@H](O)[C@H](O)CO)OC(O)(C(=O)O)C[C@@H]1O
+alpha_bond C[C@H](OC)CC
+
+MONOMERS
+1 Neu5Ac
+2 Neu5Ac
+
+BONDS
+1 2 alpha_bond

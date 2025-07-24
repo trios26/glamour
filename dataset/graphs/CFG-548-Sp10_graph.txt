@@ -1,0 +1,9 @@
+SMILES
+GalNAc4S CC(=O)N[C@H]1C(O)O[C@H](CO)[C@H](OS(=O)(=O)O)[C@@H]1O
+beta_bond C[C@@H](OC)CC
+
+MONOMERS
+1 GalNAc4S
+
+BONDS
+1 1 alpha_bond

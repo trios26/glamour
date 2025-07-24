@@ -1,0 +1,9 @@
+SMILES
+Glc-ol OC[C@@H](O)[C@@H](O)[C@H](O)[C@@H](O)CO
+nostereo_bond CC(OC)CC
+
+MONOMERS
+1 Glc-ol
+
+BONDS
+1 1 alpha_bond
